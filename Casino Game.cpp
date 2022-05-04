@@ -76,6 +76,7 @@ int main()
                 if (dice == guess)
                 {
                     cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 2;
+                    cout << "\nIt take you " << count + 1 << " time to guess it right." << endl;
                     balance += bettingAmount * 2;
                     break;
                 }
@@ -144,6 +145,7 @@ int main()
                 if (dice == guess)
                 {
                     cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 10;
+                    cout << "\nIt take you " << count + 1 << " time to guess it right." << endl;
                     balance += bettingAmount * 10;
                     break;
                 }
@@ -212,6 +214,7 @@ int main()
                 if (dice == guess)
                 {
                     cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 100;
+                    cout << "\nIt take you " << count + 1 << " time to guess it right." << endl;
                     balance += bettingAmount * 100;
                     break;
                 }
