@@ -63,6 +63,7 @@ int main()
             } while (bettingAmount > balance || bettingAmount < 0);
             // Get player's numbers
             int count = 0;
+            dice = rand() % 10 + 1;
             for (int i = 0; i < 3; i++) {
                 do
                 {
@@ -72,16 +73,22 @@ int main()
                         cout << "\nNumber should be between 1 to 10\n"
                         << "Re-enter number:\n ";
                 } while (guess <= 0 || guess > 10);
-                dice = rand() % 10 + 1;
                 if (dice == guess)
                 {
                     cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 2;
                     balance += bettingAmount * 2;
                     break;
                 }
-                else if (dice != guess)
+                else if (guess < dice)
                 {
                     cout << "Oops, try again." << endl;
+                    cout << "The number is higher." << endl;
+                    count++;
+                }
+                else if (guess > dice)
+                {
+                    cout << "OOps, try again." << endl;
+                    cout << "The number is lower." << endl;
                     count++;
                 }
                 if (count == 3) {
@@ -124,6 +131,7 @@ int main()
             } while (bettingAmount > balance || bettingAmount < 0);
             // Get player's numbers
             int count = 0;
+            dice = rand() % 50 + 1;
             for (int i = 0; i < 5; i++) {
                 do
                 {
@@ -133,16 +141,22 @@ int main()
                         cout << "\nNumber should be between 1 to 50\n"
                         << "Re-enter number:\n ";
                 } while (guess <= 0 || guess > 50);
-                dice = rand() % 50 + 1;
                 if (dice == guess)
                 {
                     cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 10;
                     balance += bettingAmount * 10;
                     break;
                 }
-                else if (dice != guess)
+                else if (guess < dice)
                 {
                     cout << "Oops, try again." << endl;
+                    cout << "The number is higher." << endl;
+                    count++;
+                }
+                else if (guess > dice)
+                {
+                    cout << "OOps, try again." << endl;
+                    cout << "The number is lower." << endl;
                     count++;
                 }
                 if (count == 5) {
@@ -185,6 +199,7 @@ int main()
             } while (bettingAmount > balance || bettingAmount <0);
             // Get player's numbers
             int count = 0;
+            dice = rand() % 100 + 1;
             for (int i = 0; i < 10; i++) {
                 do
                 {
@@ -194,16 +209,22 @@ int main()
                         cout << "\nNumber should be between 1 to 100\n"
                         << "Re-enter number:\n ";
                 } while (guess <= 0 || guess > 100);
-                dice = rand() % 100 + 1;
                 if (dice == guess)
                 {
                     cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 100;
                     balance += bettingAmount * 100;
                     break;
                 }
-                else if (dice != guess)
+                else if (guess < dice)
                 {
                     cout << "Oops, try again." << endl;
+                    cout << "The number is higher." << endl;
+                    count++;
+                }
+                else if (guess > dice)
+                {
+                    cout << "OOps, try again." << endl;
+                    cout << "The number is lower." << endl;
                     count++;
                 }
                 if (count == 10) {
