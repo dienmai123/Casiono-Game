@@ -13,7 +13,7 @@ int main()
     int balance; // stores player's balance
     int bettingAmount;
     int guess;
-    int choiceMode;
+    int choiceMode; // storing the mode
     int dice; // stores the random number
     char choice;
 
@@ -55,26 +55,39 @@ int main()
                 if (bettingAmount > balance)
                     cout << "Betting balance can't be more than current balance!\n"
                     << "\nRe-enter balance\n ";
-            } while (bettingAmount > balance);
+                else if (bettingAmount < 0)
+                {
+                    cout << "Betting balance can not be less than 0." << endl;
+                    cout << "Re-enter balace" << endl;
+                }
+            } while (bettingAmount > balance || bettingAmount < 0);
             // Get player's numbers
-            do
-            {
-                cout << "Guess any betting number between 1 & 10 :";
-                cin >> guess;
-                if (guess <= 0 || guess > 10)
-                    cout << "\nNumber should be between 1 to 10\n"
-                    << "Re-enter number:\n ";
-            } while (guess <= 0 || guess > 10);
-            dice = rand() % 10 + 1;
-            if (dice == guess)
-            {
-                cout << "\n\nYou are in luck!! You have won Rs." << bettingAmount * 10;
-                balance += bettingAmount * 2;
-            }
-            else
-            {
-                cout << "Oops, better luck next time !! You lost $ " << bettingAmount << "\n";
-                balance -= bettingAmount;
+            int count = 0;
+            for (int i = 0; i < 3; i++) {
+                do
+                {
+                    cout << "\nGuess any number between 1 & 10 :";
+                    cin >> guess;
+                    if (guess <= 0 || guess > 10)
+                        cout << "\nNumber should be between 1 to 10\n"
+                        << "Re-enter number:\n ";
+                } while (guess <= 0 || guess > 10);
+                dice = rand() % 10 + 1;
+                if (dice == guess)
+                {
+                    cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 2;
+                    balance += bettingAmount * 2;
+                    break;
+                }
+                else if (dice != guess)
+                {
+                    cout << "Oops, try again." << endl;
+                    count++;
+                }
+                if (count == 3) {
+                    cout << "\nOops, better luck next time !! You lost $ " << bettingAmount << "\n";
+                    balance -= bettingAmount;
+                }
             }
             cout << "\nThe winning number was : " << dice << "\n";
             cout << "\n" << playerName << ", You have balance of $ " << balance << "\n";
@@ -88,7 +101,7 @@ int main()
             cin >> choice;
         } while (choice == 'Y' || choice == 'y');
         break;
-        //MODE MEDIUM    
+        //MODE MEDIUUM    
     case (2):
         do
         {
@@ -103,26 +116,39 @@ int main()
                 if (bettingAmount > balance)
                     cout << "Betting balance can't be more than current balance!\n"
                     << "\nRe-enter balance\n ";
-            } while (bettingAmount > balance);
+                else if (bettingAmount < 0)
+                {
+                    cout << "Betting balance can not be less than 0." << endl;
+                    cout << "Re-enter balace" << endl;
+                }
+            } while (bettingAmount > balance || bettingAmount < 0);
             // Get player's numbers
-            do
-            {
-                cout << "Guess any betting number between 1 & 50 :";
-                cin >> guess;
-                if (guess <= 0 || guess > 50)
-                    cout << "\nNumber should be between 1 to 50\n"
-                    << "Re-enter number:\n ";
-            } while (guess <= 0 || guess > 50);
-            dice = rand() % 50 + 1;
-            if (dice == guess)
-            {
-                cout << "\n\nYou are in luck!! You have won Rs." << bettingAmount * 10;
-                balance += bettingAmount * 10;
-            }
-            else
-            {
-                cout << "Oops, better luck next time !! You lost $ " << bettingAmount << "\n";
-                balance -= bettingAmount;
+            int count = 0;
+            for (int i = 0; i < 5; i++) {
+                do
+                {
+                    cout << "\nGuess any number between 1 & 50 :";
+                    cin >> guess;
+                    if (guess <= 0 || guess > 50)
+                        cout << "\nNumber should be between 1 to 50\n"
+                        << "Re-enter number:\n ";
+                } while (guess <= 0 || guess > 50);
+                dice = rand() % 50 + 1;
+                if (dice == guess)
+                {
+                    cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 10;
+                    balance += bettingAmount * 10;
+                    break;
+                }
+                else if (dice != guess)
+                {
+                    cout << "Oops, try again." << endl;
+                    count++;
+                }
+                if (count == 5) {
+                    cout << "\nOops, better luck next time !! You lost $ " << bettingAmount << "\n";
+                    balance -= bettingAmount;
+                }
             }
             cout << "\nThe winning number was : " << dice << "\n";
             cout << "\n" << playerName << ", You have balance of $ " << balance << "\n";
@@ -131,11 +157,12 @@ int main()
                 cout << "You have no money to play ";
                 break;
             }
+            // SEE IF THE USER WANT TO PLAY AGAIAN
             cout << "\n\n-->Do you want to play again (y/n)? ";
             cin >> choice;
         } while (choice == 'Y' || choice == 'y');
         break;
-        //MODE HARD
+        //MODE HARD   
     case(3):
         do
         {
@@ -150,26 +177,39 @@ int main()
                 if (bettingAmount > balance)
                     cout << "Betting balance can't be more than current balance!\n"
                     << "\nRe-enter balance\n ";
-            } while (bettingAmount > balance);
+                else if (bettingAmount < 0)
+                {
+                    cout << "Betting balance can not be less than 0." << endl;
+                    cout << "Re-enter balace" << endl;
+                }
+            } while (bettingAmount > balance || bettingAmount <0);
             // Get player's numbers
-            do
-            {
-                cout << "Guess any betting number between 1 & 100 :";
-                cin >> guess;
-                if (guess <= 0 || guess > 100)
-                    cout << "\nNumber should be between 1 to 100\n"
-                    << "Re-enter number:\n ";
-            } while (guess <= 0 || guess > 100);
-            dice = rand() % 100 + 1;
-            if (dice == guess)
-            {
-                cout << "\n\nYou are in luck!! You have won Rs." << bettingAmount * 10;
-                balance += bettingAmount * 100;
-            }
-            else
-            {
-                cout << "Oops, better luck next time !! You lost $ " << bettingAmount << "\n";
-                balance -= bettingAmount;
+            int count = 0;
+            for (int i = 0; i < 10; i++) {
+                do
+                {
+                    cout << "\nGuess any number between 1 & 100 :";
+                    cin >> guess;
+                    if (guess <= 0 || guess > 100)
+                        cout << "\nNumber should be between 1 to 100\n"
+                        << "Re-enter number:\n ";
+                } while (guess <= 0 || guess > 100);
+                dice = rand() % 100 + 1;
+                if (dice == guess)
+                {
+                    cout << "\n\nYou are in luck!! You have won $" << bettingAmount * 100;
+                    balance += bettingAmount * 100;
+                    break;
+                }
+                else if (dice != guess)
+                {
+                    cout << "Oops, try again." << endl;
+                    count++;
+                }
+                if (count == 10) {
+                    cout << "\nOops, better luck next time !! You lost $ " << bettingAmount << "\n";
+                    balance -= bettingAmount;
+                }
             }
             cout << "\nThe winning number was : " << dice << "\n";
             cout << "\n" << playerName << ", You have balance of $ " << balance << "\n";
@@ -178,18 +218,17 @@ int main()
                 cout << "You have no money to play ";
                 break;
             }
+            // SEE IF THE USER WANT TO PLAY AGAIAN
             cout << "\n\n-->Do you want to play again (y/n)? ";
             cin >> choice;
         } while (choice == 'Y' || choice == 'y');
-        break;
-
-
+        break;  
     }
 
     //Rule for easy mode
 
     cout << "\n\n\n";
-    cout << "\n\nThanks for playing the game. Your balance is $ " << balance << "\n\n";
+    cout << "\n\nThanks for playing the game. Your current balance is $ " << balance << "\n\n";
     return 0;
 }
 
@@ -202,7 +241,8 @@ void ruleEasy()
     cout << "\t\t======CASINO NUMBER GUESSING RULES!======\n";
     cout << "\t1. Choose a number between 1 to 10\n";
     cout << "\t2. Winner gets 2 times of the money bet\n";
-    cout << "\t3. Wrong bet, and you lose the amount you bet\n\n";
+    cout << "\t3. Wrong bet, and you lose the amount you bet\n";
+    cout << "\t4. You get three attemps!\n\n";
 }
 
 //Rule for MEDIUM mode
@@ -211,7 +251,8 @@ void ruleMedium()
     cout << "\t\t======CASINO NUMBER GUESSING RULES!======\n";
     cout << "\t1. Choose a number between 1 to 50\n";
     cout << "\t2. Winner gets 10 times of the money bet\n";
-    cout << "\t3. Wrong bet, and you lose the amount you bet\n\n";
+    cout << "\t3. Wrong bet, and you lose the amount you bet\n";
+    cout << "\t4. You get five attemps!\n\n";
 }
 
 //Rule for hard mode
@@ -220,5 +261,6 @@ void ruleHard()
     cout << "\t\t======CASINO NUMBER GUESSING RULES!======\n";
     cout << "\t1. Choose a number between 1 to 100\n";
     cout << "\t2. Winner gets 100 times of the money bet\n";
-    cout << "\t3. Wrong bet, and you lose the amount you bet\n\n";
+    cout << "\t3. Wrong bet, and you lose the amount you bet\n";
+    cout << "\t4. You get 10 attemps!\n\n";
 }
