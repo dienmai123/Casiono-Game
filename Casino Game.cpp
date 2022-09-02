@@ -183,7 +183,7 @@ int main()
         do
         {
 
-            ruleMedium();
+            ruleHard();
             cout << "\n\nYour current balance is $ " << balance << "\n";
             // Get player's betting balance
             do
@@ -230,7 +230,7 @@ int main()
                     cout << "The number is lower." << endl;
                     count++;
                 }
-                if (count == 10) {
+                if (count == 6) {
                     cout << "\nOops, better luck next time !! You lost $ " << bettingAmount << "\n";
                     balance -= bettingAmount;
                 }
@@ -286,5 +286,5 @@ void ruleHard()
     cout << "\t1. Choose a number between 1 to 100\n";
     cout << "\t2. Winner gets 100 times of the money bet\n";
     cout << "\t3. Wrong bet, and you lose the amount you bet\n";
-    cout << "\t4. You get 10 attemps!\n\n";
+    cout << "\t4. You get six attemps!\n\n";
 }
