@@ -92,7 +92,7 @@ int main()
                     cout << "The number is lower." << endl;
                     count++;
                 }
-                if (count == 3) {
+                if (count == 2) {
                     cout << "\nOops, better luck next time !! You lost $ " << bettingAmount << "\n";
                     balance -= bettingAmount;
                 }
@@ -266,7 +266,7 @@ void ruleEasy()
     cout << "\t1. Choose a number between 1 to 10\n";
     cout << "\t2. Winner gets 2 times of the money bet\n";
     cout << "\t3. Wrong bet, and you lose the amount you bet\n";
-    cout << "\t4. You get three attemps!\n\n";
+    cout << "\t4. You get two attemps!\n\n";
 }
 
 //Rule for MEDIUM mode
