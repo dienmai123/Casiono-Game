@@ -161,7 +161,7 @@ int main()
                     cout << "The number is lower." << endl;
                     count++;
                 }
-                if (count == 5) {
+                if (count == 4) {
                     cout << "\nOops, better luck next time !! You lost $ " << bettingAmount << "\n";
                     balance -= bettingAmount;
                 }
@@ -276,7 +276,7 @@ void ruleMedium()
     cout << "\t1. Choose a number between 1 to 50\n";
     cout << "\t2. Winner gets 10 times of the money bet\n";
     cout << "\t3. Wrong bet, and you lose the amount you bet\n";
-    cout << "\t4. You get five attemps!\n\n";
+    cout << "\t4. You get four attemps!\n\n";
 }
 
 //Rule for hard mode
